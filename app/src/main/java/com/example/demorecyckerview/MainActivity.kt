@@ -13,6 +13,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         val btnAddUser: Button = findViewById(R.id.btn_AddUser)
 
         val rvUser: RecyclerView = findViewById(R.id.rv_user)
@@ -24,8 +25,11 @@ class MainActivity : AppCompatActivity() {
         }*/
         //----Si declarásemos varios eventos cómo parámetos, sólo podría ir fuera el último.
         // val adapter = UserAdapter(retrieveUsers(),{lo que sea}, {lo que sea}) { user -> Log.d("MainActivivty", "Userclicked on: $user") }
+        val app = (application as App)
+        val users = app.users
+
         val adapter =
-            UserAdapter(retrieveUsers()) { user -> Log.d("MainActivivty", "Userclicked on: $user") }
+            UserAdapter(users) { user -> Log.d("MainActivivty", "Userclicked on: $user") }
         rvUser.adapter = adapter
         //val layoutManager = LinearLayoutManager(this)
         val layoutManager = GridLayoutManager(this, 2)
