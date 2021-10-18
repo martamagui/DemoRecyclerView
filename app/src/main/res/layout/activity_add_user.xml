@@ -8,18 +8,41 @@
 
     <Button
         android:id="@+id/btn_add_user"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
         android:text="@string/add_user"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/til_last_name"
+        app:layout_constraintStart_toStartOf="@+id/til_last_name"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_add_and_exit"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/add_user_exit"
+        app:layout_constraintEnd_toEndOf="@+id/btn_add_user"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="@+id/btn_add_user"
+        app:layout_constraintTop_toBottomOf="@+id/btn_add_user" />
+
+    <Button
+        android:id="@+id/btn_exit"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="#CD0D0D"
+        android:text="@string/exit"
+        app:layout_constraintEnd_toEndOf="@+id/btn_add_user"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btn_add_user"
+        app:layout_constraintTop_toBottomOf="@+id/btn_add_and_exit" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_first_name"
         android:layout_width="0dp"
-        android:layout_height="50dp"
+        android:layout_height="65dp"
         android:layout_marginStart="64dp"
         android:layout_marginTop="64dp"
         android:layout_marginEnd="64dp"
@@ -30,7 +53,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tied_first_name"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:hint="@string/first_name"
             tools:ignore="TextContrastCheck" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -38,7 +61,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_last_name"
         android:layout_width="0dp"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
         android:layout_marginEnd="64dp"
         app:layout_constraintBottom_toTopOf="@+id/btn_add_user"
@@ -49,7 +72,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tied_last_name"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:hint="@string/last_name"
             tools:ignore="TextContrastCheck" />
     </com.google.android.material.textfield.TextInputLayout>

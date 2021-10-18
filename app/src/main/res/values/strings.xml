@@ -1,8 +1,9 @@
 <resources>
     <string name="app_name">DemoRecyckerView</string>
     <string name="add_user">Add User</string>
+    <string name="add_user_exit">Add and Exit</string>
+    <string name="exit">Exit</string>
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
     <string name="hint">hint</string>
-
 </resources>
