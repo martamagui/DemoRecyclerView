@@ -44,7 +44,7 @@
         android:layout_width="0dp"
         android:layout_height="65dp"
         android:layout_marginStart="64dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="64dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -63,8 +63,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="64dp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_add_user"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/til_first_name">
@@ -76,5 +76,51 @@
             android:hint="@string/last_name"
             tools:ignore="TextContrastCheck" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/iv_1"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="32dp"
+        android:adjustViewBounds="false"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="@+id/til_last_name"
+        app:layout_constraintTop_toBottomOf="@+id/til_last_name"
+        app:srcCompat="@drawable/gato" />
+
+    <ImageView
+        android:id="@+id/iv_2"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="32dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="@+id/til_last_name"
+        app:layout_constraintTop_toBottomOf="@+id/til_last_name"
+        app:srcCompat="@drawable/gato2" />
+
+    <RadioGroup
+        android:id="@+id/rg_group"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center|center_horizontal"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_2"
+        app:layout_constraintEnd_toStartOf="@+id/iv_2"
+        app:layout_constraintStart_toEndOf="@+id/iv_1"
+        app:layout_constraintTop_toTopOf="@+id/iv_2">
+
+        <RadioButton
+            android:id="@+id/rb_img1"
+            android:layout_width="137dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:id="@+id/rb_img2"
+            android:layout_width="31dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center|end" />
+    </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

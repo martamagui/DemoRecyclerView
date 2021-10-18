@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 
 
 class UserAdapter(
@@ -25,11 +26,18 @@ class UserAdapter(
         val user: User = users[position]
         holder.tvUserName.text = user.firstName
         holder.tvLasNAme.text = user.lastName
-        /*val onClickListener: View.OnClickListener = object : View.OnClickListener {
+        //Imágenes con Glide
+        Glide.with(holder.ivAvatar.context)
+            .load(user.imageUrl)
+            .placeholder(R.drawable.gato)
+            .error(R.drawable.error)
+            .into(holder.ivAvatar);
+
+        val onClickListener: View.OnClickListener = object : View.OnClickListener {
             override fun onClick(v: View?) {
                 //oncClickListener(user)
             }
-        }*/
+        }
         holder.tvUserName.text = user.firstName
         //holder.itemView.setOnClickListener(onClickListener)
 
@@ -56,7 +64,7 @@ class UserAdapter(
     class UserViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         var tvUserName: TextView = view.findViewById(R.id.tv_username)
         val tvLasNAme: TextView = view.findViewById(R.id.tv_lastname)
-        val tvAvatar: ImageView = view.findViewById(R.id.tv_avatar)
+        val ivAvatar: ImageView = view.findViewById(R.id.tv_avatar)
     }
 
 }

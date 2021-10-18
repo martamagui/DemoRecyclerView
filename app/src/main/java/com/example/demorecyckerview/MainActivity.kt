@@ -19,7 +19,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val btnAddUser: Button = findViewById(R.id.btn_AddUser)
-
         val rvUser: RecyclerView = findViewById(R.id.rv_user)
         /*--
         val userOncClickListener = object : UserOncClickListener {
