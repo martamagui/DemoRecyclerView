@@ -4,7 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import android.widget.EditText
+import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 import java.util.*
 
 class AddUserActivity : AppCompatActivity() {
@@ -16,15 +17,15 @@ class AddUserActivity : AppCompatActivity() {
         val users = app.users
 
 
-        val etFirstName: EditText = findViewById(R.id.et_first_name)
-        val etLastName: EditText = findViewById(R.id.et_last_name)
+        val tilFirstName: TextInputEditText = findViewById(R.id.tied_first_name)
+        val tilLastName: TextInputEditText = findViewById(R.id.tied_last_name)
         val btnAdd: Button =  findViewById(R.id.btn_add_user)
 
 
 
         btnAdd.setOnClickListener{
-            val firstName: String = etFirstName.text.toString()
-            val lastName: String = etLastName.text.toString()
+            val firstName: String = tilFirstName.text.toString()
+            val lastName: String = tilLastName.text.toString()
             users.add(User(UUID.randomUUID().toString(),firstName,lastName,""))
 
             //cambio de pantalla
