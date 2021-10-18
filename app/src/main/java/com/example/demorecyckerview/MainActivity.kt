@@ -1,5 +1,6 @@
 package com.example.demorecyckerview
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -37,13 +38,15 @@ class MainActivity : AppCompatActivity() {
 
 
         btnAddUser.setOnClickListener {
-            adapter.addUser(
+            val nextScreenIntent: Intent = Intent(this, AddUserActivity::class.java)
+            startActivity(nextScreenIntent)
+            /*adapter.addUser(
                 User(
                     UUID.randomUUID().toString(),
                     "User from Main Activity ${UUID.randomUUID().toString()}",
                     "Image ${UUID.randomUUID().toString()}"
                 )
-            )
+            )*/
         }
     }
 
