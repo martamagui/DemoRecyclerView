@@ -1,6 +1,5 @@
 package com.example.demorecyckerview
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class UserAdapter(
     private val users: MutableList<User>,
+
     //Listener de click en cada item de user
     val oncClickListener: (String)->Unit
 ) : RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
@@ -27,7 +27,7 @@ class UserAdapter(
                 //oncClickListener(user)
             }
         }
-        holder.tvUserName.text = user.name
+        holder.tvUserName.text = user.firstName
         holder.itemView.setOnClickListener(onClickListener)
 
 

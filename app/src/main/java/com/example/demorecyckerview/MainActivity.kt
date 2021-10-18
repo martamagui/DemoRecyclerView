@@ -24,19 +24,33 @@ class MainActivity : AppCompatActivity() {
         }*/
         //----Si declarásemos varios eventos cómo parámetos, sólo podría ir fuera el último.
         // val adapter = UserAdapter(retrieveUsers(),{lo que sea}, {lo que sea}) { user -> Log.d("MainActivivty", "Userclicked on: $user") }
-        val adapter = UserAdapter(retrieveUsers()) { user -> Log.d("MainActivivty", "Userclicked on: $user") }
+        val adapter =
+            UserAdapter(retrieveUsers()) { user -> Log.d("MainActivivty", "Userclicked on: $user") }
         rvUser.adapter = adapter
         //val layoutManager = LinearLayoutManager(this)
-        val layoutManager = GridLayoutManager(this,2)
+        val layoutManager = GridLayoutManager(this, 2)
         rvUser.layoutManager = layoutManager
 
 
-        btnAddUser.setOnClickListener{
-            //adapter.addUser(UUID.randomUUID().toString())
+        btnAddUser.setOnClickListener {
+            adapter.addUser(
+                User(
+                    UUID.randomUUID().toString(),
+                    "User from Main Activity ${UUID.randomUUID().toString()}",
+                    "Image ${UUID.randomUUID().toString()}"
+                )
+            )
         }
     }
 
     private fun retrieveUsers(): MutableList<User> {
-        return List(5) { index -> User(index,"dfgdfg","","") }.toMutableList()
+        return List(5) { index ->
+            User(
+                UUID.randomUUID().toString(),
+                "FName $index",
+                "LName $index",
+                "Image $index"
+            )
+        }.toMutableList()
     }
 }

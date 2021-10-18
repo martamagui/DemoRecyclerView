@@ -1,9 +1,9 @@
 package com.example.demorecyckerview
 
 data class User(
-    val id: Int,
-    val name: String,
-    val password: String? = "foco",
+    val id: String,
+    val firstName: String,
+    val lastName: String,
     val imageUrl: String? = null
 ) {
     fun checkValidUser(): Boolean = true
