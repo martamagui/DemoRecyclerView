@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class UserAdapter(
     private val users: MutableList<User>,
+    //Listener de click en cada item de user
     val oncClickListener: (String)->Unit
 ) : RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
 
