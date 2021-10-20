@@ -2,8 +2,11 @@ package com.example.demorecyckerview
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
+import com.bumptech.glide.Glide
 
 class UserDetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -11,13 +14,15 @@ class UserDetailActivity : AppCompatActivity() {
         setContentView(R.layout.user_activity_detail)
         val userId = intent.extras?.getString("userId")
         if (userId == null) {
+            Log.d("Detail","user id es null")
             finish()
         }
         var user: User? = null
         (application as App).users.forEach { forUser ->
             if (forUser.id == userId) {
                 user = forUser
-                return
+                //hay que devolver obligatoriamente
+                return@forEach
             }
         }
         if (userId == null) {
@@ -29,6 +34,8 @@ class UserDetailActivity : AppCompatActivity() {
 
         tvDetailFirstName.text= user?.firstName
         tvDetailLastName.text= user?.lastName
+
+        Glide.with(this).load(user?.imageUrl).into(ivDetailActivity)
 
 
 
