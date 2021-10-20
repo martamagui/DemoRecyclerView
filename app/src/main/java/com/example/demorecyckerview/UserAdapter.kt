@@ -13,7 +13,7 @@ class UserAdapter(
     private val users: MutableList<User>,
 
     //Listener de click en cada item de user
-    val oncClickListener: (String) -> Unit
+    val onClickListener: (User) -> Unit
 ) : RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
@@ -35,15 +35,15 @@ class UserAdapter(
 
         val onClickListener: View.OnClickListener = object : View.OnClickListener {
             override fun onClick(v: View?) {
-                //oncClickListener(user)
+                onClickListener(user)
             }
         }
         holder.tvUserName.text = user.firstName
-        //holder.itemView.setOnClickListener(onClickListener)
+        holder.itemView.setOnClickListener(onClickListener)
 
 
         //holder.itemView.setOnClickListener{
-        //    onClickListener.onClick(username)
+        //    onClickListener.onClick(user)
         //}
     }
 

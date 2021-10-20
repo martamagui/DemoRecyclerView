@@ -32,7 +32,11 @@ class MainActivity : AppCompatActivity() {
         val users = app.users
 
         adapter =
-            UserAdapter(users) { user -> Log.d("MainActivivty", "Userclicked on: $user") }
+            UserAdapter(users) { user ->
+                val intent = Intent(this, UserDetailActivity::class.java)
+                intent.putExtra("userId", user.id)
+                startActivity(intent)
+            }
         rvUser.adapter = adapter
         //val layoutManager = LinearLayoutManager(this)
         val layoutManager = GridLayoutManager(this, 2)
