@@ -41,7 +41,6 @@ class UserAdapter(
         holder.tvUserName.text = user.firstName
         holder.itemView.setOnClickListener(onClickListener)
 
-
         //holder.itemView.setOnClickListener{
         //    onClickListener.onClick(user)
         //}
