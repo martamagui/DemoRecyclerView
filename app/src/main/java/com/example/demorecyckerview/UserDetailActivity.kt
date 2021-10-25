@@ -14,17 +14,22 @@ class UserDetailActivity : AppCompatActivity() {
         setContentView(R.layout.user_activity_detail)
         val userId = intent.extras?.getString("userId")
         if (userId == null) {
-            Log.d("Detail","user id es null")
+            Log.d("Detail", "user id es null")
             finish()
         }
-        var user: User? = null
+
+        //---- OPCIONES PARA RECOGER EL USUARIO que coincide con el id que tiene el extra
+        val user: User? = (application as App).users.firstOrNull { forUser -> forUser.id == userId }
+        //--- OPCION 2 --- val user: User? = (application as App).users.filter{forUser -> forUser.id==userId}
+        /*--- OPCION 3 --- var user: User? = null
         (application as App).users.forEach { forUser ->
             if (forUser.id == userId) {
                 user = forUser
                 //hay que devolver obligatoriamente
                 return@forEach
             }
-        }
+        }*/
+
         if (userId == null) {
             finish()
         }
@@ -32,11 +37,10 @@ class UserDetailActivity : AppCompatActivity() {
         val tvDetailLastName: TextView = findViewById(R.id.tv_detail_last_name)
         val ivDetailActivity: ImageView = findViewById(R.id.iv_detail_img)
 
-        tvDetailFirstName.text= user?.firstName
-        tvDetailLastName.text= user?.lastName
+        tvDetailFirstName.text = user?.firstName
+        tvDetailLastName.text = user?.lastName
 
         Glide.with(this).load(user?.imageUrl).into(ivDetailActivity)
-
 
 
     }
