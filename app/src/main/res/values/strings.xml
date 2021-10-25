@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DemoRecyckerView</string>
+    <string name="app_name">DemoRecyclerView</string>
     <string name="add_user">Add User</string>
     <string name="add_user_exit">Add and Exit</string>
     <string name="exit">Exit</string>
