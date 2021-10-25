@@ -33,12 +33,12 @@ class AddUserActivity : AppCompatActivity() {
         val ivImage1: ImageView = findViewById(R.id.iv_1)
         val ivImage2: ImageView = findViewById(R.id.iv_2)
 
-        Glide.with(this)
-            .load("https://i.ytimg.com/vi/1Ne1hqOXKKI/maxresdefault.jpg")
-            .into(ivImage1)
-        Glide.with(this)
-            .load("https://cdn.theatlantic.com/thumbor/OgQgHFiqAd92pArI1zjmcUHjoSc=/144x0:2411x1700/1200x900/media/img/mt/2017/06/shutterstock_319985324/original.jpg")
-            .into(ivImage2)
+        //Uso de glide resumido con la clase Extensions.kt
+        ivImage1.imageFromUrl(
+            "https://i.ytimg.com/vi/1Ne1hqOXKKI/maxresdefault.jpg",
+            R.drawable.gato2
+        )
+        ivImage2.imageFromUrl("https://cdn.theatlantic.com/thumbor/OgQgHFiqAd92pArI1zjmcUHjoSc=/144x0:2411x1700/1200x900/media/img/mt/2017/06/shutterstock_319985324/original.jpg")
 
 
 
@@ -64,12 +64,13 @@ class AddUserActivity : AppCompatActivity() {
     private fun addUser(): Boolean {
         val firstName: String = tilFirstName.text.toString()
         val lastName: String = tilLastName.text.toString()
-        var imageUrl : String? = null
+        var imageUrl: String? = null
 
-        if(rbImage1.isChecked){
-            imageUrl= "https://i.ytimg.com/vi/1Ne1hqOXKKI/maxresdefault.jpg"
-        }else{
-            imageUrl= "https://cdn.theatlantic.com/thumbor/OgQgHFiqAd92pArI1zjmcUHjoSc=/144x0:2411x1700/1200x900/media/img/mt/2017/06/shutterstock_319985324/original.jpg"
+        if (rbImage1.isChecked) {
+            imageUrl = "https://i.ytimg.com/vi/1Ne1hqOXKKI/maxresdefault.jpg"
+        } else {
+            imageUrl =
+                "https://cdn.theatlantic.com/thumbor/OgQgHFiqAd92pArI1zjmcUHjoSc=/144x0:2411x1700/1200x900/media/img/mt/2017/06/shutterstock_319985324/original.jpg"
         }
         if (firstName.length > 3 && lastName.length > 3) {
             (application as App).users.add(

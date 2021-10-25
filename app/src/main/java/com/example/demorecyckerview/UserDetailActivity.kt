@@ -40,7 +40,7 @@ class UserDetailActivity : AppCompatActivity() {
         tvDetailFirstName.text = user?.firstName
         tvDetailLastName.text = user?.lastName
 
-        Glide.with(this).load(user?.imageUrl).into(ivDetailActivity)
+        ivDetailActivity.imageFromUrl(user?.imageUrl!!)
 
 
     }

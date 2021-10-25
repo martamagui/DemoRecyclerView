@@ -9,6 +9,7 @@ import android.widget.Button
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.gson.Gson
 import org.json.JSONObject
 import java.util.*
 
@@ -31,6 +32,15 @@ class MainActivity : AppCompatActivity() {
         // val adapter = UserAdapter(retrieveUsers(),{lo que sea}, {lo que sea}) { user -> Log.d("MainActivivty", "Userclicked on: $user") }
         val app = (application as App)
         val users = app.users
+
+        val gson: Gson = Gson()
+        val results = gson.fromJson(FakeData.usersJson, ResultResponse::class.java)
+
+        users.addAll(results.users.toUser())
+
+        /*results.users.forEach { userResponse ->
+            users.add(userResponse.toUser())
+        }*/
 
         adapter =
             UserAdapter(users) { user ->
